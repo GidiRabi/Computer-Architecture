@@ -1,0 +1,14 @@
+
+0x00400000: addi $s0, $zero, 0x1D34
+0x00400004: add $s1, $zero, $s0
+0x00400008: addi $s2, $zero, 0x00A2
+0x0040000C: bne $s0, $s1, target
+0x00400010: sub $s1, $s1, $s2
+0x00400014: j end
+0x00400018: target: and $s1, $s1, $s2
+0x0040001C: jal func1
+0x00400020: j end
+0x00400024: func1: sll $s1, $s1, 2
+0x00400028: j end
+0x0040002C: end: sll $s2, $s1, 1
+0x00400030: sw $s0, 100($t3)
